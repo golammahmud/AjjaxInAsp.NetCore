@@ -1,0 +1,21 @@
+﻿@model AuthInAsp.NetCore.Pages.MessageModel
+
+<div class="row p-2">
+    @if (Model.Type == null)
+    {
+        <div class="alert   alert-success alert-dismissible fade show" role="alert">
+            <strong>@Model.Message</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    else
+    {
+        <div class="alert   alert-danger alert-dismissible fade show" role="alert">
+            <strong>@Model.Message</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    }
+</div>
+
+

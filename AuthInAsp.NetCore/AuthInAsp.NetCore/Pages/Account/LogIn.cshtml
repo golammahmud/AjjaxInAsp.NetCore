@@ -1,0 +1,39 @@
+﻿@page
+@model AuthInAsp.NetCore.Pages.Account.LogInModel
+@{
+    TempData["Title"] = "Login";
+}
+<h1 class="text-center">User Login</h1>
+
+<div class="row container my-3 p-4">
+    @if (TempData["Message"] != null)
+    {
+        <partial name="_MessagePartial" model='new MessageModel { Message = TempData["Message"]} ' />
+    }
+    <div class=" shadow-lg rounded-5 justify-content-center">
+        <form method="post" class="form-control-lg">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group mt-3">
+                <label asp-for="loginViewModel.Email"></label>
+                <input asp-for="loginViewModel.Email" class="form-control rounded-pill" />
+                <span asp-validation-for="loginViewModel.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="loginViewModel.Password"></label>
+                <input asp-for="loginViewModel.Password" class="rounded-pill form-control" />
+                <span asp-validation-for="loginViewModel.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <div class="checkbox">
+                    <label asp-for="loginViewModel.RememberMe">
+                        <input asp-for="loginViewModel.RememberMe" />
+                        @Html.DisplayNameFor(m => m.loginViewModel.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <div class="text-center ">
+                <button type="submit" class="btn rounded-pill w-50 center btn-primary my-3 text-center justify-content-center">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
